@@ -1,4 +1,4 @@
-package tfar.overpoweredarmorbar.overlay;
+package tfar.overloadedarmorbar.overlay;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

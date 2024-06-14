@@ -1,5 +1,6 @@
 package tfar.overpoweredarmorbar;
 
+import tfar.overloadedarmorbar.OverloadedArmorBar;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
@@ -13,11 +14,9 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 import tfar.overpoweredarmorbar.overlay.OverlayEventHandler;
 
 @Mod(OverloadedArmorBar.MODID)
-public class OverloadedArmorBar {
+public class OverloadedArmorBarForge {
 
-	public static final String MODID = "overloadedarmorbar";
-
-	public OverloadedArmorBar() {
+	public OverloadedArmorBarForge() {
 		if (FMLEnvironment.dist == Dist.CLIENT) {
 			ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class,() -> new IExtensionPoint.DisplayTest(
 					() -> "dQw4w9WgXcQ",     // Send any version from server to client, since we will be accepting any version as well
@@ -30,7 +29,7 @@ public class OverloadedArmorBar {
 	}
 	public void setup(final RegisterGuiOverlaysEvent event) {
 		//Register Armor Renderer for events
-		event.registerAbove(VanillaGuiOverlay.ARMOR_LEVEL.id(),MODID,new OverlayEventHandler());
+		event.registerAbove(VanillaGuiOverlay.ARMOR_LEVEL.id(), OverloadedArmorBar.MODID,OverlayEventHandler.overlay);
 		MinecraftForge.EVENT_BUS.addListener(OverlayEventHandler::disableOverlay);
 	}
 }

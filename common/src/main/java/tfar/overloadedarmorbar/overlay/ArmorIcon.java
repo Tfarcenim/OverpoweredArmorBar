@@ -1,4 +1,4 @@
-package tfar.overpoweredarmorbar.overlay;
+package tfar.overloadedarmorbar.overlay;
 
 /*
     Class wraps the information required to draw an individual armor icon

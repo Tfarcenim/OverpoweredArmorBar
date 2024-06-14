@@ -1,7 +1,8 @@
-package tfar.overpoweredarmorbar.overlay;
+package tfar.overloadedarmorbar.overlay;
 
 
-import tfar.overpoweredarmorbar.Configs;
+
+import tfar.overloadedarmorbar.platform.Services;
 
 import java.util.List;
 
@@ -73,7 +74,7 @@ public class ArmorBar
         for (int i = 0; i < 10; i++)
         {
             armorIcons[i] = new ArmorIcon();
-            setArmorIconColor(armorIcons[i], Configs.ClientConfig.colorValues.get(), scale, counter);
+            setArmorIconColor(armorIcons[i], Services.PLATFORM.getConfig().colorValues(), scale, counter);
             if (counter >= 2)
             {
                 //We have at least a full icon to show

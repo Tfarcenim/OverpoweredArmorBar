@@ -4,26 +4,43 @@ package tfar.overpoweredarmorbar;
 import com.google.common.collect.Lists;
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
+import tfar.overloadedarmorbar.platform.MLConfig;
 
 import java.util.List;
 
-public class Configs {
+public class Configs implements MLConfig {
 
-    public static final ClientConfig CLIENT;
+    public static final Client CLIENT;
     public static final ForgeConfigSpec CLIENT_SPEC;
 
     static {
-        final Pair<ClientConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(ClientConfig::new);
+        final Pair<Client, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Client::new);
         CLIENT_SPEC = specPair.getRight();
         CLIENT = specPair.getLeft();
     }
 
-    public static class ClientConfig {
+    @Override
+    public boolean alwaysShowArmorBar() {
+        return Client.alwaysShowArmorBar.get();
+    }
+
+    @Override
+    public boolean showEmptyArmorIcons() {
+        return Client.showEmptyArmorIcons.get();
+    }
+
+    @Override
+    public List<? extends String> colorValues() {
+        return Client.colorValues.get();
+    }
+
+
+    public static class Client {
         public static ForgeConfigSpec.BooleanValue alwaysShowArmorBar;
         public static ForgeConfigSpec.BooleanValue showEmptyArmorIcons;
         public static ForgeConfigSpec.ConfigValue<List<? extends String>> colorValues;
 
-        ClientConfig(ForgeConfigSpec.Builder builder) {
+        Client(ForgeConfigSpec.Builder builder) {
             builder.push("general");
             colorValues = builder
                      .comment("Colors must be specified in #RRGGBB format")

@@ -8,14 +8,14 @@ modLoader="javafml" #mandatory
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
 loaderVersion="[25,)" #mandatory (24 is current forge version)
 # A URL to refer people to when problems occur with this mod
-issueTrackerURL="https://github.com/Tfarcenim/OverloadedArmorBar/issues" #optional
+issueTrackerURL="${issues}" #optional
 # A list of mods - how many allowed here is determined by the individual mod loader
 license="MIT"
 [[mods]] #mandatory
 # The modid of the mod
-modId="overloadedarmorbar" #mandatory
+modId="${mod_id}" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="${file.jarVersion}" #mandatory
+version="${version}" #mandatory
  # A display name for the mod
 displayName="Overloaded Armor Bar" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
@@ -29,6 +29,4 @@ displayName="Overloaded Armor Bar" #mandatory
 # A text field displayed in the mod UI
 authors="Tfarecnim, LocusWay" #optional
 # The description text for the mod (multi line!) (#mandatory)
-description='''
-Enhanced armor bar rendering for armor levels above diamond
-'''
+description='''${description}'''
