@@ -4,6 +4,8 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import tfar.overloadedarmorbar.platform.Services;
 
 public class OverlayRenderer {
@@ -19,8 +21,9 @@ public class OverlayRenderer {
 
 
     public static void renderArmorBar(GuiGraphics graphics) {
-        if (Minecraft.getInstance().gameMode.canHurtPlayer()) {
-            int currentArmorValue = Minecraft.getInstance().player.getArmorValue();
+        Entity entity = Minecraft.getInstance().getCameraEntity();
+        if (entity instanceof Player player && Minecraft.getInstance().gameMode.canHurtPlayer() && !Minecraft.getInstance().options.hideGui) {
+            int currentArmorValue = player.getArmorValue();
             int xStart = graphics.guiWidth() / 2 - 91;
             int yPosition = graphics.guiHeight() - Services.PLATFORM.getLeftHeight(Minecraft.getInstance().gui);
 
