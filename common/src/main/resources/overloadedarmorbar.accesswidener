@@ -1,5 +1,0 @@
-accessWidener v1 named
-
-accessible field net/minecraft/client/gui/Gui ARMOR_FULL_SPRITE Lnet/minecraft/resources/ResourceLocation;
-accessible field net/minecraft/client/gui/Gui ARMOR_HALF_SPRITE Lnet/minecraft/resources/ResourceLocation;
-accessible field net/minecraft/client/gui/Gui ARMOR_EMPTY_SPRITE Lnet/minecraft/resources/ResourceLocation;
